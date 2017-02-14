@@ -1,11 +1,11 @@
-# مستندات
+# Api Reference
 <div dir="rtl">
 در مستند زیر می‌توانید نحوه استفاده از api پروژه op را مشاهده و از آن استفاده نمایید.
 </div>
 
-# شروع
+# Getting Started
 
-## ورود
+## Login
 
 <div dir="rtl">
 برای ارسال درخواست ورود باید به لینک زیر درخواست بزنید.(این آدرس‌ها درست نیستند.)
@@ -132,7 +132,7 @@ Bearer {space} {access_token}
 
 
 
-# هشدارها
+# Alerts
 ### url: armandar.com/api/v1/alerts  --- method: get
 
 
@@ -211,19 +211,25 @@ Bearer {space} {access_token}
 
 <div dir="rtl">
 همواره اولین آیتم مجموع است و بقیه آیتم‌ها در زیر آن با عنوان فارسی و تعداد  نمایش داده شده است.
+
+از Url می‌توانید برای ارسال کاربر به صفحه مربوطه که در سامانه موجود است استفاده کنید.
 </div>
 
 
-# گیج ها
+# Gauges
 ### url: armandar.com/api/v1/gauges/{year}/{orgtype?}/{page?}/{limit?}/{search?}  --- method: get
 
-## year (required)
+<div dir="rtl">
+جهت نمایش گیج‌های ابتدای برنامه از این بخش استفاده کنید.
+</div>
+
+## year (required) {gauges}
 
 <div dir="rtl">
 سال جاری که کاربر در بخش تنظیمات مشخص نموده‌است با این درخواست و به عنوان پارامتر اول ارسال شود.
 </div>
 
-## orgtype (optional)
+## orgtype (optional) {gauges}
 
 <div dir="rtl">
 نوع سازمان برای دریافت اطلاعات آن از طریق این پارامتر مقدار دهید می‌گردد. به صورت پیش‌فرض مقدار University دارد و نیاز به ارسال وجود ندارد ولی اگر نیاز به ست کردن آن برای دسترسی به پارامترهای بعدی را دارید به صورت دستی از همین مقدار University استفاده کنید.
@@ -231,7 +237,7 @@ Bearer {space} {access_token}
 
 default: University
 
-## page (optional)
+## page (optional) {gauges}
 
 <div dir="rtl">
 با توجه به اینکه میزان اطلاعات ممکن است زیاد شود و هم زمان لود طول بکشد و هم UI از زیبایی خارج شود اطلاعات به صورت صفحه به صفحه می‌اید. این پارامتر شماره صفحه را برای دریافت اطلاعات آن صفحه مشخص می‌کند.
@@ -239,7 +245,7 @@ default: University
 
 default:1
 
-## limit (optional)
+## limit (optional) {gauges}
 
 <div dir="rtl">
 تعداد رکوردهای مربوط به هر صفحه را نمایش می‌دهد. می‌توانید مشخص کنید که در هربار واکشی اطلاعات چه تعداد رکورد را برای شما بیاورد.
@@ -247,7 +253,7 @@ default:1
 
 default: 10
 
-## search (optional)
+## search (optional) {gauges}
 
 <div dir="rtl">
 برای جستجوی عبارت خاص در رکوردها از این پارامتر استفاده کنید. این پارامتر جهت استفاده در بخش‌های مختلف جستجو در دسترس است و در آدرس‌های مختلف به همین منظور قرار داده‌شده‌است.
@@ -255,7 +261,7 @@ default: 10
 
 default: ""
 
-## نمونه
+## Sample  {gauges}
 
 <div dir="rtl">
 نمونه نحوه ارسال درخواست با OkHttpClient در جاوا
@@ -308,17 +314,21 @@ DeviationFactor: میرزان انحراف
 
 
 
-# پروژه‌ها
+# Projects
 ### url: armandar.com/api/v1/projects/{year}/{page?}/{limit?}/{search?}  --- method: get
 
+<div dir="rtl">
+جهت نمایش پروژه‌ها از این بخش استفاده کنید.
+</div>
 
-## year (required)
+
+## year (required) {projects}
 
 <div dir="rtl">
 سال جاری که کاربر در بخش تنظیمات مشخص نموده‌است با این درخواست و به عنوان پارامتر اول ارسال شود.
 </div>
 
-## page (optional)
+## page (optional) {projects}
 
 <div dir="rtl">
 با توجه به اینکه میزان اطلاعات ممکن است زیاد شود و هم زمان لود طول بکشد و هم UI از زیبایی خارج شود اطلاعات به صورت صفحه به صفحه می‌اید. این پارامتر شماره صفحه را برای دریافت اطلاعات آن صفحه مشخص می‌کند.
@@ -326,7 +336,7 @@ DeviationFactor: میرزان انحراف
 
 default:1
 
-## limit (optional)
+## limit (optional) {projects}
 
 <div dir="rtl">
 تعداد رکوردهای مربوط به هر صفحه را نمایش می‌دهد. می‌توانید مشخص کنید که در هربار واکشی اطلاعات چه تعداد رکورد را برای شما بیاورد.
@@ -334,7 +344,7 @@ default:1
 
 default: 10
 
-## search (optional)
+## search (optional) {projects}
 
 <div dir="rtl">
 برای جستجوی عبارت خاص در رکوردها از این پارامتر استفاده کنید. این پارامتر جهت استفاده در بخش‌های مختلف جستجو در دسترس است و در آدرس‌های مختلف به همین منظور قرار داده‌شده‌است.
@@ -342,7 +352,7 @@ default: 10
 
 default: ""
 
-## نمونه
+## Sample  {projects}
 
 <div dir="rtl">
 نمونه نحوه ارسال درخواست با OkHttpClient در جاوا
@@ -417,6 +427,268 @@ StatusTitle: وضعیت
 </div>
 
 
+
+
+# Project Steps
+### url: armandar.com/api/v1/steps/{project}/{search?}  --- method: get
+
+<div dir="rtl">
+جهت نمایش فعالیت‌های یک پروژه وفتی روی آن کلیک می‌شود از این بخش استفاده کنید. شناسه پروژه برای دریافت اطلاعات باید ارسال شود. در این متد ما به سال نیاز نداریم
+
+با توجه به اینکه تعداد فعالیت‌ها معمولا خیلی زیاد نیست در این بخش ما صفحه‌بندی نداریم و تمام اطلاعات با یک درخواست قابل دریافت است.
+
+</div>
+
+>  با توجه به اینکه فعالیت‌ها ساختار درختی دارند به جیسان دریافتی دقت نموده و برای نمایش با ساختاری مشابه درختی تدبیری بیندیشید.
+
+
+
+## project (required) {steps}
+
+<div dir="rtl">
+شناسه پروژه‌ای که کاربر انتخاب نموده است با استفاده از پارامتر اول ارسال شود.
+</div>
+
+
+## search (optional) {steps}
+
+<div dir="rtl">
+برای جستجوی عبارت خاص در رکوردها از این پارامتر استفاده کنید. این پارامتر جهت استفاده در بخش‌های مختلف جستجو در دسترس است و در آدرس‌های مختلف به همین منظور قرار داده‌شده‌است.
+</div>
+
+default: ""
+
+## Sample  {steps}
+
+<div dir="rtl">
+نمونه نحوه ارسال درخواست با OkHttpClient در جاوا
+</div>
+
+```java
+OkHttpClient client = new OkHttpClient();
+
+Request request = new Request.Builder()
+  .url("http://armandar.com/api/v1/steps/642")
+  .get()
+  .addHeader("authorization", "Bearer gyXOAl0G4lg5LQYDa....")
+  .addHeader("cache-control", "no-cache")
+  .build();
+
+Response response = client.newCall(request).execute();
+```
+
+
+<div dir="rtl">
+و نتیجه دریافتی به صورت زیر خواهد بود.
+</div>
+
+```json
+[
+    {
+        "Id": 3105,
+        "ProjectId": 642,
+        "Title": "بررسی وضعیت موجود و تعداد نیروی انسانی شاغل",
+        "WeightFactor": 20,
+        "ParentId": null,
+        "Level": 1,
+        "Value": 90,
+        "ScheduleValue": 0,
+        "DeviationFactor": 0
+    },
+    {
+        "Id": 31272,
+        "ProjectId": 642,
+        "Title": "تست1",
+        "WeightFactor": 100,
+        "ParentId": 3105,
+        "Level": 2,
+        "Value": 0,
+        "ScheduleValue": 0,
+        "DeviationFactor": 0
+    },
+    {
+        "Id": 3106,
+        "ProjectId": 642,
+        "Title": "استخراج آخرین استانداردهای نیروی انسانی",
+        "WeightFactor": 40,
+        "ParentId": null,
+        "Level": 1,
+        "Value": 75,
+        "ScheduleValue": 0,
+        "DeviationFactor": 0
+    },
+    {
+        "Id": 3103,
+        "ProjectId": 642,
+        "Title": "بررسی و مقایسه وضعیت موجود با استانداردها",
+        "WeightFactor": 20,
+        "ParentId": null,
+        "Level": 1,
+        "Value": 85,
+        "ScheduleValue": 0,
+        "DeviationFactor": 0
+    },
+    {
+        "Id": 3108,
+        "ProjectId": 642,
+        "Title": "ارائه راه حل برای جبران کمبودها",
+        "WeightFactor": 20,
+        "ParentId": null,
+        "Level": 1,
+        "Value": 40,
+        "ScheduleValue": 0,
+        "DeviationFactor": 0
+    },
+    {
+        "Id": 31273,
+        "ProjectId": 642,
+        "Title": "ururt",
+        "WeightFactor": 100,
+        "ParentId": 3108,
+        "Level": 2,
+        "Value": 0,
+        "ScheduleValue": 0,
+        "DeviationFactor": 0
+    },
+    {
+        "Id": 31274,
+        "ProjectId": 642,
+        "Title": "ururt",
+        "WeightFactor": 80,
+        "ParentId": 31273,
+        "Level": 3,
+        "Value": 80,
+        "ScheduleValue": 0,
+        "DeviationFactor": 0
+    },
+    {
+        "Id": 31275,
+        "ProjectId": 642,
+        "Title": "تست1",
+        "WeightFactor": 20,
+        "ParentId": 31273,
+        "Level": 3,
+        "Value": 80,
+        "ScheduleValue": 0,
+        "DeviationFactor": 0
+    }
+]
+```
+
+Title: عنوان
+
+Value: پیشرفت
+
+Level: سطح
+
+
+<div dir="rtl">
+بقیه اطلاعات نیز در حال حاضر مورد نیاز نیست و جایی نمایش داده نمی‌شود.
+
+
+مقدار Level سطح تو رفتگی را در درخت نمایش خواهد داد.
+</div>
+
+
+# Actions
+### url: armandar.com/api/v1/actions/{year}/{page?}/{limit?}/{search?}  --- method: get
+
+<div dir="rtl">
+برای نمایش لیست اقدامات جاری کاربر از این متد استفاده کنید.
+</div>
+
+
+## year (required) {actions}
+
+<div dir="rtl">
+سال جاری که کاربر در بخش تنظیمات مشخص نموده‌است با این درخواست و به عنوان پارامتر اول ارسال شود.
+</div>
+
+## page (optional) {actions}
+
+<div dir="rtl">
+با توجه به اینکه میزان اطلاعات ممکن است زیاد شود و هم زمان لود طول بکشد و هم UI از زیبایی خارج شود اطلاعات به صورت صفحه به صفحه می‌اید. این پارامتر شماره صفحه را برای دریافت اطلاعات آن صفحه مشخص می‌کند.
+</div>
+
+default:1
+
+## limit (optional) {actions}
+
+<div dir="rtl">
+تعداد رکوردهای مربوط به هر صفحه را نمایش می‌دهد. می‌توانید مشخص کنید که در هربار واکشی اطلاعات چه تعداد رکورد را برای شما بیاورد.
+</div>
+
+default: 10
+
+## search (optional) {actions}
+
+<div dir="rtl">
+برای جستجوی عبارت خاص در رکوردها از این پارامتر استفاده کنید. این پارامتر جهت استفاده در بخش‌های مختلف جستجو در دسترس است و در آدرس‌های مختلف به همین منظور قرار داده‌شده‌است.
+</div>
+
+default: ""
+
+
+## Sample  {actions}
+
+<div dir="rtl">
+نمونه نحوه ارسال درخواست با OkHttpClient در جاوا
+</div>
+
+```java
+OkHttpClient client = new OkHttpClient();
+
+Request request = new Request.Builder()
+  .url("http://armandar.com/api/v1/actions/1395")
+  .get()
+  .addHeader("authorization", "Bearer gyXOAl0G4lg5LQYDa....")
+  .addHeader("cache-control", "no-cache")
+  .build();
+
+Response response = client.newCall(request).execute();
+```
+
+
+<div dir="rtl">
+و نتیجه دریافتی به صورت زیر خواهد بود.
+</div>
+
+```json
+[
+  {
+    "Id": 2366,
+    "Title": "تهیه گزارش‌های ماهانه سال 95",
+    "Code": "A95-002366",
+    "YearId": 1395,
+    "OrganizationChartTitle": "معاونت توسعه مدیریت و منابع ",
+    "Value": 36.84,
+    "ScheduleValue": 92.62
+  },
+  {
+    "Id": 2707,
+    "Title": "تهیه و انتشار ماهنامه تست",
+    "Code": "A95-002707",
+    "YearId": 1395,
+    "OrganizationChartTitle": "دانشگاه تهران",
+    "Value": 62.5,
+    "ScheduleValue": 90.83
+  }
+]
+```
+
+Title: عنوان
+
+Code: کد (حتماً نمایش داده شود.)
+
+OrganizationChartTitle: نام دانشگاه یا واحد
+
+Value: پیشرفت
+
+ScheduleValue: پیشرفت برنامه‌ای
+
+<div dir="rtl">
+بقیه اطلاعات نیز در حال حاضر مورد نیاز نیست و جایی نمایش داده نمی‌شود.
+</div>
 
 <div dir="rtl">
 </div>
