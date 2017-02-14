@@ -11,9 +11,7 @@
 برای ارسال درخواست ورود باید به لینک زیر درخواست بزنید.(این آدرس‌ها درست نیستند.)
 </div>
 
-### url: armandar.com/api/v1/login
-
-### method: post
+### url: armandar.com/api/v1/login --- method: post
 
 <div dir="rtl">
 و موارد زیر را به هدر  درخواست خود اضافه نمایید.(Header)
@@ -135,8 +133,7 @@ Bearer {space} {access_token}
 
 
 # هشدارها
-## url: armandar.com/api/v1/alerts
-## method: get
+### url: armandar.com/api/v1/alerts  --- method: get
 
 
 <div dir="rtl">
@@ -215,6 +212,210 @@ Bearer {space} {access_token}
 <div dir="rtl">
 همواره اولین آیتم مجموع است و بقیه آیتم‌ها در زیر آن با عنوان فارسی و تعداد  نمایش داده شده است.
 </div>
+
+
+# گیج ها
+### url: armandar.com/api/v1/gauges/{year}/{orgtype?}/{page?}/{limit?}/{search?}  --- method: get
+
+## year (required)
+
+<div dir="rtl">
+سال جاری که کاربر در بخش تنظیمات مشخص نموده‌است با این درخواست و به عنوان پارامتر اول ارسال شود.
+</div>
+
+## orgtype (optional)
+
+<div dir="rtl">
+نوع سازمان برای دریافت اطلاعات آن از طریق این پارامتر مقدار دهید می‌گردد. به صورت پیش‌فرض مقدار University دارد و نیاز به ارسال وجود ندارد ولی اگر نیاز به ست کردن آن برای دسترسی به پارامترهای بعدی را دارید به صورت دستی از همین مقدار University استفاده کنید.
+</div>
+
+default: University
+
+## page (optional)
+
+<div dir="rtl">
+با توجه به اینکه میزان اطلاعات ممکن است زیاد شود و هم زمان لود طول بکشد و هم UI از زیبایی خارج شود اطلاعات به صورت صفحه به صفحه می‌اید. این پارامتر شماره صفحه را برای دریافت اطلاعات آن صفحه مشخص می‌کند.
+</div>
+
+default:1
+
+## limit (optional)
+
+<div dir="rtl">
+تعداد رکوردهای مربوط به هر صفحه را نمایش می‌دهد. می‌توانید مشخص کنید که در هربار واکشی اطلاعات چه تعداد رکورد را برای شما بیاورد.
+</div>
+
+default: 10
+
+## search (optional)
+
+<div dir="rtl">
+برای جستجوی عبارت خاص در رکوردها از این پارامتر استفاده کنید. این پارامتر جهت استفاده در بخش‌های مختلف جستجو در دسترس است و در آدرس‌های مختلف به همین منظور قرار داده‌شده‌است.
+</div>
+
+default: ""
+
+## نمونه
+
+<div dir="rtl">
+نمونه نحوه ارسال درخواست با OkHttpClient در جاوا
+</div>
+
+```java
+OkHttpClient client = new OkHttpClient();
+
+Request request = new Request.Builder()
+  .url("http://armandar.com/api/v1/gauges/1395/Univertsity/1/10/گیلان")
+  .get()
+  .addHeader("authorization", "Bearer gyXOAl0G4lg5LQYDa....")
+  .addHeader("cache-control", "no-cache")
+  .build();
+
+Response response = client.newCall(request).execute();
+```
+
+
+<div dir="rtl">
+و نتیجه دریافتی به صورت زیر خواهد بود.
+</div>
+
+```json
+[
+    {
+        "Value": 40.66,
+        "ScheduleValue": 97.5,
+        "YearId": 1395,
+        "DeviationFactor": -56.84,
+        "OldScheduleValue": 0,
+        "HeadOrganizationChartId": 69,
+        "Title": "گیلان"
+    }
+]
+```
+
+Title: عنوان
+
+Value: پیشرفت واقعی
+
+ScheduleValue: پیشرفت برنامه‌ای
+
+DeviationFactor: میرزان انحراف
+
+
+<div dir="rtl">
+بقیه اطلاعات نیز در حال حاضر مورد نیاز نیست و جایی نمایش داده نمی‌شود.
+</div>
+
+
+
+# پروژه‌ها
+### url: armandar.com/api/v1/projects/{year}/{page?}/{limit?}/{search?}  --- method: get
+
+
+## year (required)
+
+<div dir="rtl">
+سال جاری که کاربر در بخش تنظیمات مشخص نموده‌است با این درخواست و به عنوان پارامتر اول ارسال شود.
+</div>
+
+## page (optional)
+
+<div dir="rtl">
+با توجه به اینکه میزان اطلاعات ممکن است زیاد شود و هم زمان لود طول بکشد و هم UI از زیبایی خارج شود اطلاعات به صورت صفحه به صفحه می‌اید. این پارامتر شماره صفحه را برای دریافت اطلاعات آن صفحه مشخص می‌کند.
+</div>
+
+default:1
+
+## limit (optional)
+
+<div dir="rtl">
+تعداد رکوردهای مربوط به هر صفحه را نمایش می‌دهد. می‌توانید مشخص کنید که در هربار واکشی اطلاعات چه تعداد رکورد را برای شما بیاورد.
+</div>
+
+default: 10
+
+## search (optional)
+
+<div dir="rtl">
+برای جستجوی عبارت خاص در رکوردها از این پارامتر استفاده کنید. این پارامتر جهت استفاده در بخش‌های مختلف جستجو در دسترس است و در آدرس‌های مختلف به همین منظور قرار داده‌شده‌است.
+</div>
+
+default: ""
+
+## نمونه
+
+<div dir="rtl">
+نمونه نحوه ارسال درخواست با OkHttpClient در جاوا
+</div>
+
+```java
+OkHttpClient client = new OkHttpClient();
+
+Request request = new Request.Builder()
+  .url("http://armandar.com/api/v1/projects/1395/1/10/گیلان")
+  .get()
+  .addHeader("authorization", "Bearer gyXOAl0G4lg5LQYDa....")
+  .addHeader("cache-control", "no-cache")
+  .build();
+
+Response response = client.newCall(request).execute();
+```
+
+
+<div dir="rtl">
+و نتیجه دریافتی به صورت زیر خواهد بود.
+</div>
+
+```json
+[
+    {
+        "Id": 2317,
+        "Code": "P95-002317",
+        "Title": "تست ۱",
+        "OrganizationChartId": 690809,
+        "OrganizationChartTitle": "گیلان",
+        "StatusId": 2,
+        "StatusTitle": "در حال انجام",
+        "ScheduleValue": 98.76,
+        "Value": 86,
+        "YearId": 1395,
+        "DeviationFactor": -12.76
+    },
+    {
+        "Id": 2371,
+        "Code": "P95-002371",
+        "Title": "تست ۲",
+        "OrganizationChartId": 690809,
+        "OrganizationChartTitle": "گیلان",
+        "StatusId": 2,
+        "StatusTitle": "در حال انجام",
+        "ScheduleValue": 99.75,
+        "Value": 60,
+        "YearId": 1395,
+        "DeviationFactor": -39.75
+    },...
+]
+```
+
+Title: عنوان
+
+Code: کد (حتماً کد را هم نمایش دهید)
+
+OrganizationChartTitle: نام دانشگاه یا واحد
+
+Value: پیشرفت واقعی
+
+ScheduleValue: پیشرفت برنامه‌ای
+
+DeviationFactor: میرزان انحراف
+
+StatusTitle: وضعیت
+
+
+<div dir="rtl">
+بقیه اطلاعات نیز در حال حاضر مورد نیاز نیست و جایی نمایش داده نمی‌شود.
+</div>
+
 
 
 <div dir="rtl">
