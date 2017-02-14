@@ -1,20 +1,21 @@
+# مستندات
 <div dir="rtl">
-
-# مستندات api برای پروژه op
 در مستند زیر می‌توانید نحوه استفاده از api پروژه op را مشاهده و از آن استفاده نمایید.
+</div>
 
+# شروع
 
-# Getting Started
-## Login
+## ورود
+
+<div dir="rtl">
 برای ارسال درخواست ورود باید به لینک زیر درخواست بزنید.(این آدرس‌ها درست نیستند.)
-
+</div>
 
 [http://armandar.com/api/v1/login](http://armandar.com/api/v1/login)
 
+<div dir="rtl">
 و موارد زیر را به هدر  درخواست خود اضافه نمایید.(Header)
-
 </div>
-
 
 ```json
 headers: {
@@ -23,12 +24,9 @@ headers: {
 }
 ```
 
-
-
 <div dir="rtl">
 دیتای ارسالی به آدرس نیز باید به این شرح باشد.:
 </div>
-
 
 ```json
 data: {
@@ -38,11 +36,9 @@ data: {
 }
 ```
 
-
 <div dir="rtl">
 نمونه کد ارسالی با استفاده از OkHttpClient در جاوا به صورت زیر است:
 </div>
-
 
 ```java
 OkHttpClient client = new OkHttpClient();
@@ -64,7 +60,6 @@ Response response = client.newCall(request).execute();
 اگر نام کاربری یا کلمه عبور نادرست باشد این خطا را دریافت خواهید کرد:
 </div>
 
-
 ```json
 {
   "error": "invalid_grant",
@@ -72,7 +67,10 @@ Response response = client.newCall(request).execute();
 }
 ```
 
-otherwise responce will be like this:
+<div dir="rtl">
+در غیر این صوورت اطلاعاتی به این صورت دریافت خواهید کرد:
+</div>
+
 ```json
 {
   "access_token": "r0WYlR82ArN5PnrM6wg............",
@@ -84,4 +82,3 @@ otherwise responce will be like this:
 }
 ```
 
-You mus
