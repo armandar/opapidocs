@@ -147,6 +147,7 @@ Bearer {space} {access_token}
         "Title": "مجموع",
         "Url": "#",
         "Order": 0,
+        "CanClick":false,
         "EnTitle": "Count"
     },
     {
@@ -154,6 +155,7 @@ Bearer {space} {access_token}
         "Title": "پروژه ها با درصد انحراف بالا",
         "Url": "#",
         "Order": 1,
+        "CanClick":false,
         "EnTitle": "AlertCount"
     },
     {
@@ -161,6 +163,7 @@ Bearer {space} {access_token}
         "Title": "پروژه های بدون مرحله",
         "Url": "/Shared/Alarm/ProjectStepIssue",
         "Order": 2,
+        "CanClick":false,
         "EnTitle": "ProjectStepIssueCount"
     },
     {
@@ -168,6 +171,7 @@ Bearer {space} {access_token}
         "Title": "فاکتور وزنی مراحل پروژه",
         "Url": "/Shared/Alarm/ProjectWFIssue",
         "Order": 3,
+        "CanClick":false,
         "EnTitle": "ProjectWFIssueCount"
     },
     {
@@ -175,6 +179,7 @@ Bearer {space} {access_token}
         "Title": "مستندات مراحل پروژه",
         "Url": "/Shared/Alarm/ProjectFileIssue",
         "Order": 4,
+        "CanClick":false,
         "EnTitle": "ProjectFileIssueCount"
     },
     {
@@ -182,6 +187,7 @@ Bearer {space} {access_token}
         "Title": "لینک پروژه به چالش",
         "Url": "/Shared/Alarm/ProjectChallengeIssue",
         "Order": 5,
+        "CanClick":false,
         "EnTitle": "ProjectChallengeIssueCount"
     },
     {
@@ -189,6 +195,7 @@ Bearer {space} {access_token}
         "Title": "لینک پروژه به اهداف",
         "Url": "/Shared/Alarm/ProjectGoalIssue",
         "Order": 6,
+        "CanClick":false,
         "EnTitle": "ProjectGoalIssueCount"
     },
     {
@@ -196,6 +203,7 @@ Bearer {space} {access_token}
         "Title": "اخبار جدید",
         "Url": "/Administration/News",
         "Order": 7,
+        "CanClick":false,
         "EnTitle": "NewNewsCount"
     },
     {
@@ -203,6 +211,7 @@ Bearer {space} {access_token}
         "Title": "پروژه های متوقف شده",
         "Url": "#",
         "Order": 8,
+        "CanClick":false,
         "EnTitle": "StopedProjectCount"
     }
 ]
@@ -213,6 +222,19 @@ Bearer {space} {access_token}
 همواره اولین آیتم مجموع است و بقیه آیتم‌ها در زیر آن با عنوان فارسی و تعداد  نمایش داده شده است.
 
 از Url می‌توانید برای ارسال کاربر به صفحه مربوطه که در سامانه موجود است استفاده کنید.
+
+</div>
+
+## Updated Alert
+<div dir="rtl">
+همواره اولین آیتم مجموع است و بقیه آیتم‌ها در زیر آن با عنوان فارسی و تعداد  نمایش داده شده است.
+
+> یک به روزرسانی انجام شده و خاصیت CanClick نیز در نتایج اضافه شده‌است که برای نمایش این است که کاربر روی آیتم مورد نظر می‌تواند کلید کند یا نه.
+پس از کلیک بر روی آن باید لیستی از پروژه‌های مربوطه نمایش داده شود که اطلاعات مربوط به alerttype آن از طریق خاصیت EnTitle دریافت می‌شود.
+برای نمایش پروژه‌ها از از نسخه دوم api مربوط به پروژه‌ها باید استفاده کنید. 
+در ضمن مانند لیست قبلی با کلیک بر روی دکمه مقابل هر پروژه باید لیست فعالیت‌های آن را نیز ببیند.
+تفاوت این لیست با لیست قبلی در این است که پیشرفت‌های زیر پروژه‌ها نمایش داده نمی‌شود ولی بقیه موارد مثل قبلی است.
+[نسخه دوم api پروژه](#projects-version-2)
 </div>
 
 
@@ -330,13 +352,13 @@ DeviationFactor: میرزان انحراف
 در زیرمجموعه‌های جستجو و صفحه‌بندی نداریم.
 </div>
 
-## year (required) {gauges}
+## year (required) {gauges-v2}
 
 <div dir="rtl">
 سال جاری که کاربر در بخش تنظیمات مشخص نموده‌است با این درخواست و به عنوان پارامتر اول ارسال شود.
 </div>
 
-## parent (optional) {gauges}
+## parent (optional) {gauges-v2}
 
 <div dir="rtl">
 برای نمایش تمام گیج‌های زیرمجموعه ها نیاز است تا Id پدر را بفرستیم. به این صورت که وقتی کاربر روی یکی از گیج‌ها کلیک می‌کند مقدار Id آن از این طریق ارسال می‌شود و اطلاعات زیرمجموعه‌هایش دریافت شده و نمایش داده‌خواهد شد.
@@ -346,7 +368,7 @@ DeviationFactor: میرزان انحراف
 
 default: 1
 
-## page (optional) {gauges}
+## page (optional) {gauges-v2}
 
 <div dir="rtl">
 با توجه به اینکه میزان اطلاعات ممکن است زیاد شود و هم زمان لود طول بکشد و هم UI از زیبایی خارج شود اطلاعات به صورت صفحه به صفحه می‌اید. این پارامتر شماره صفحه را برای دریافت اطلاعات آن صفحه مشخص می‌کند.
@@ -354,7 +376,7 @@ default: 1
 
 default:1
 
-## limit (optional) {gauges}
+## limit (optional) {gauges-v2}
 
 <div dir="rtl">
 تعداد رکوردهای مربوط به هر صفحه را نمایش می‌دهد. می‌توانید مشخص کنید که در هربار واکشی اطلاعات چه تعداد رکورد را برای شما بیاورد.
@@ -362,7 +384,7 @@ default:1
 
 default: 10
 
-## search (optional) {gauges}
+## search (optional) {gauges-v2}
 
 <div dir="rtl">
 برای جستجوی عبارت خاص در رکوردها از این پارامتر استفاده کنید. این پارامتر جهت استفاده در بخش‌های مختلف جستجو در دسترس است و در آدرس‌های مختلف به همین منظور قرار داده‌شده‌است.
@@ -370,7 +392,7 @@ default: 10
 
 default: ""
 
-## Sample  {gauges}
+## Sample  {gauges-v2}
 
 <div dir="rtl">
 نمونه نحوه ارسال درخواست با OkHttpClient در جاوا
@@ -533,10 +555,150 @@ DeviationFactor: میرزان انحراف
 
 StatusTitle: وضعیت
 
-
 <div dir="rtl">
 بقیه اطلاعات نیز در حال حاضر مورد نیاز نیست و جایی نمایش داده نمی‌شود.
 </div>
+
+
+
+
+# Projects (Version 2)
+### url: armandar.com/api/v2/projects/{year}/{page?}/{limit?}/{alerttype?}/{search?}  --- method: get
+
+<div dir="rtl">
+
+> تذکر: ابتدا [به روز رسانی مربوط به Alert](#updated-alert)  را بخوانید. 
+
+
+جهت نمایش پروژه‌ها از این بخش استفاده کنید. تمام اطلاعات مانند ورژن اول می‌باشد. تنها یک آپشن جدید alerttype جهت نمایش پروژه‌های مربوط به هشدارها اضافه شده‌است.
+</div>
+
+
+## year (required) {projects-v2}
+
+<div dir="rtl">
+سال جاری که کاربر در بخش تنظیمات مشخص نموده‌است با این درخواست و به عنوان پارامتر اول ارسال شود.
+</div>
+
+## page (optional) {projects-v2}
+
+<div dir="rtl">
+با توجه به اینکه میزان اطلاعات ممکن است زیاد شود و هم زمان لود طول بکشد و هم UI از زیبایی خارج شود اطلاعات به صورت صفحه به صفحه می‌اید. این پارامتر شماره صفحه را برای دریافت اطلاعات آن صفحه مشخص می‌کند.
+</div>
+
+default:1
+
+## limit (optional) {projects-v2}
+
+<div dir="rtl">
+تعداد رکوردهای مربوط به هر صفحه را نمایش می‌دهد. می‌توانید مشخص کنید که در هربار واکشی اطلاعات چه تعداد رکورد را برای شما بیاورد.
+</div>
+
+default: 10
+
+## alerttype (optional) {projects-v2}
+
+<div dir="rtl">
+وقتی کاربر روی هشدارها کلیک کرده و مقدار EnTitle مربوط به هشدار کلیک شده را گرفتید همان را به عنوان alerttype باید به این متد ارسال کنید.
+
+> نکته: دقت کنید که حتماً مقدار CanClick آیتم کلیک شده برابر با true باشد.
+
+جهت اطمینان مقادیر مجاز برای alerttype که مقدار null بر نمی‌گرداند به شرح زیر است.
+
+- AlertCount
+- ProjectStepIssueCount
+- ProjectWFIssueCount
+- ProjectChallengeIssueCount
+- ProjectGoalIssueCount
+- و مقدار خالی که عملکرد آن مشابه [نسخه اول این متد](#projects) خواهد شد.
+
+</div>
+
+default: ""
+
+## search (optional) {projects-v2}
+
+<div dir="rtl">
+برای جستجوی عبارت خاص در رکوردها از این پارامتر استفاده کنید. این پارامتر جهت استفاده در بخش‌های مختلف جستجو در دسترس است و در آدرس‌های مختلف به همین منظور قرار داده‌شده‌است.
+</div>
+
+default: ""
+
+## Sample  {projects-v2}
+
+<div dir="rtl">
+نمونه نحوه ارسال درخواست با OkHttpClient در جاوا
+</div>
+
+```java
+OkHttpClient client = new OkHttpClient();
+
+Request request = new Request.Builder()
+  .url("http://armandar.com/api/v2/projects/1395/1/10/AlertCount/گیلان")
+  .get()
+  .addHeader("authorization", "Bearer gyXOAl0G4lg5LQYDa....")
+  .addHeader("cache-control", "no-cache")
+  .build();
+
+Response response = client.newCall(request).execute();
+```
+
+
+<div dir="rtl">
+و نتیجه دریافتی به صورت زیر خواهد بود.
+</div>
+
+```json
+[
+    {
+        "Id": 2317,
+        "Code": "P95-002317",
+        "Title": "تست ۱",
+        "OrganizationChartId": 690809,
+        "OrganizationChartTitle": "گیلان",
+        "StatusId": 2,
+        "StatusTitle": "در حال انجام",
+        "ScheduleValue": 98.76,
+        "Value": 86,
+        "YearId": 1395,
+        "DeviationFactor": -12.76
+    },
+    {
+        "Id": 2371,
+        "Code": "P95-002371",
+        "Title": "تست ۲",
+        "OrganizationChartId": 690809,
+        "OrganizationChartTitle": "گیلان",
+        "StatusId": 2,
+        "StatusTitle": "در حال انجام",
+        "ScheduleValue": 99.75,
+        "Value": 60,
+        "YearId": 1395,
+        "DeviationFactor": -39.75
+    },...
+]
+```
+
+Title: عنوان
+
+Code: کد (حتماً کد را هم نمایش دهید)
+
+OrganizationChartTitle: نام دانشگاه یا واحد
+
+Value: پیشرفت واقعی
+
+ScheduleValue: پیشرفت برنامه‌ای
+
+DeviationFactor: میرزان انحراف
+
+StatusTitle: وضعیت
+
+
+<div dir="rtl">
+بقیه اطلاعات نیز در حال حاضر مورد نیاز نیست و جایی نمایش داده نمی‌شود. در صورتی که مقدار alerttype چیزی به جز رشته خالی باشد مقدار پیشرفت‌ها و انحراف‌ها همگی صفر بر‌می‌گردد چون کاربردی ندارند.
+</div>
+
+
 
 
 
