@@ -601,9 +601,12 @@ default: 10
 <div dir="rtl">
 وقتی کاربر روی هشدارها کلیک کرده و مقدار EnTitle مربوط به هشدار کلیک شده را گرفتید همان را به عنوان alerttype باید به این متد ارسال کنید.
 
+
 > نکته: دقت کنید که حتماً مقدار CanClick آیتم کلیک شده برابر با true باشد.
 
+
 جهت اطمینان مقادیر مجاز برای alerttype که مقدار null بر نمی‌گرداند به شرح زیر است.
+</div>
 
 - AlertCount
 - ProjectStepIssueCount
@@ -611,8 +614,6 @@ default: 10
 - ProjectChallengeIssueCount
 - ProjectGoalIssueCount
 - و مقدار خالی که عملکرد آن مشابه [نسخه اول این متد](#projects) خواهد شد.
-
-</div>
 
 default: ""
 
