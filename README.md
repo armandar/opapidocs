@@ -967,3 +967,87 @@ ScheduleValue: پیشرفت برنامه‌ای
 
 <div dir="rtl">
 </div>
+
+
+# Save Step Progresses
+
+### url: armandar.com/api/v2/saveprogress --- method: post
+
+<div dir="rtl">
+به آدرس بالا درخواست زده 
+و موارد زیر را به هدر  درخواست خود اضافه نمایید.(Header)
+</div>
+
+```json
+headers: {
+    "content-type": "application/x-www-form-urlencoded",
+    "cache-control": "no-cache",
+    "Authorization": "Bearer r6iBDo8NCynu8-VON9E924qrom4gA..."
+}
+```
+
+<div dir="rtl">
+دیتای ارسالی به آدرس نیز باید به این شرح باشد.:
+</div>
+
+```json
+data: {
+    "ProjectStepId": 12, //int
+    "DatePersian": "1395/01/01", //string
+    "Progress": 10.25 //double
+}
+```
+
+<div dir="rtl">
+نمونه کد ارسالی با استفاده از OkHttpClient در جاوا به صورت زیر است:
+</div>
+
+```java
+OkHttpClient client = new OkHttpClient();
+
+MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
+RequestBody body = RequestBody.create(mediaType, "ProjectStepId=12&DatePersian=1395%2F01%2F01&Progress=10.25");
+Request request = new Request.Builder()
+  .url("http://armandar.com/api/v2/saveprogress")
+  .post(body)
+  .addHeader("authorization", "Bearer r6iBDo8NCynu8-VON9E924qrom4gA....")
+  .addHeader("content-type", "application/x-www-form-urlencoded")
+  .addHeader("cache-control", "no-cache")
+  .build();
+
+Response response = client.newCall(request).execute();
+```
+
+<div dir="rtl">
+اگر اطلاعات ارسال دچار مشکل باشد اطلاعاتی به شکل زیر دریافت می‌کنید که میتوانید پیام موجود را به صورت هشدار به کاربر نمایش دهید.:
+</div>
+
+```json
+{
+    "Id": 0,
+    "Success": false,
+    "Message": "برای تاریخ مورد نظر اطلاعات ثبت شده است. لطفا تاریخ را تصحیح نمایید.",
+    "Data": null
+}
+```
+
+<div dir="rtl">
+در غیر این صورت و اطلاعاتی به این صورت دریافت خواهید کرد:
+</div>
+
+```json
+{
+  "Id": 12,
+  "Success": true,
+  "Message": "ذخیره اطلاعات با موفقیت انجام شد.",
+  "Data": {
+    "NewActualProgress": 22.2,
+    "NewScheduleProgress": 99.33
+  }
+}
+```
+
+
+<div dir="rtl">
+مقادیر NewActualProgress و NewScheduleProgress را در صورتی که بخواهید همان لحظه نمودار پیشرفت پروژه‌ی مربوط به این فعالیت را بروزرسانی کنید می‌توانید مورد استفاده قرار دهید.
+</div>
