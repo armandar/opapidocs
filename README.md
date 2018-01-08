@@ -662,7 +662,25 @@ Response response = client.newCall(request).execute();
         "ScheduleValue": 98.76,
         "Value": 86,
         "YearId": 1395,
-        "DeviationFactor": -12.76
+        "DeviationFactor": -12.76,        
+        "Year": 1396,
+        "ScheduleStartDate": "2017-03-21T00:00:00",
+        "ScheduleStartDateString": "1396/01/01",
+        "ScheduleEndDate": "2017-10-22T00:00:00",
+        "ScheduleEndDateString": "1396/07/30",
+        "ActualStartDate": null,
+        "ActualStartDateString": "",
+        "ActualEndDate": null,
+        "ActualEndDateString": "",
+        "ExecutionTypeId": null,
+        "ExecutionTypeTitle": null,
+        "Budget": null,
+        "BudgetAllocationTypeId": null,
+        "BudgetAllocationTypeTitle": null,
+        "BudgetFundingTypeId": null,
+        "BudgetFundingTypeTitle": null,
+        "AssignedMembers": "دانشگاه تبریز (tabriz)",
+        "Description": null
     },
     {
         "Id": 2371,
@@ -675,7 +693,25 @@ Response response = client.newCall(request).execute();
         "ScheduleValue": 99.75,
         "Value": 60,
         "YearId": 1395,
-        "DeviationFactor": -39.75
+        "DeviationFactor": -39.75,        
+        "Year": 1396,
+        "ScheduleStartDate": "2017-03-21T00:00:00",
+        "ScheduleStartDateString": "1396/01/01",
+        "ScheduleEndDate": "2017-10-22T00:00:00",
+        "ScheduleEndDateString": "1396/07/30",
+        "ActualStartDate": null,
+        "ActualStartDateString": "",
+        "ActualEndDate": null,
+        "ActualEndDateString": "",
+        "ExecutionTypeId": null,
+        "ExecutionTypeTitle": null,
+        "Budget": null,
+        "BudgetAllocationTypeId": null,
+        "BudgetAllocationTypeTitle": null,
+        "BudgetFundingTypeId": null,
+        "BudgetFundingTypeTitle": null,
+        "AssignedMembers": "دانشگاه تبریز (tabriz)",
+        "Description": null
     },...
 ]
 ```
@@ -694,12 +730,250 @@ DeviationFactor: میرزان انحراف
 
 StatusTitle: وضعیت
 
+Year: سال کاری
+
+ScheduleStartDate: تاریخ شروع برنامه‌ای
+
+ScheduleStartDateString: تاریخ شمسی شروع برنامه‌ای
+
+ScheduleEndDate: تاریخ پایان برنامه‌ای
+
+ScheduleEndDateString: تاریخ شمسی پایان برنامه‌ای
+
+ActualStartDate: تاریخ شروع واقعی
+
+ActualStartDateString: تاریخ شمسی شروع واقعی
+
+ActualEndDate: تاریخ پایان واقعی
+
+ActualEndDateString: تاریخ شمسی پایان واقعی
+
+ExecutionTypeTitle: نوع اجرا
+
+BudgetAllocationTypeTitle: نحوه تخصیص بودجه
+
+BudgetFundingTypeTitle: محل تامین بودجه
+
+AssignedMembers: واحد مسئول
+
+Description: ضرورت تعریف پروژه
 
 <div dir="rtl">
 بقیه اطلاعات نیز در حال حاضر مورد نیاز نیست و جایی نمایش داده نمی‌شود. در صورتی که مقدار alerttype چیزی به جز رشته خالی باشد مقدار پیشرفت‌ها و انحراف‌ها همگی صفر بر‌می‌گردد چون کاربردی ندارند.
 </div>
 
 
+# Projects (Version 3)
+### url: armandar.com/api/v3/projects/{year}/{orgchartid}/{page?}/{limit?}/{alerttype?}/{search?}  --- method: get
+
+<div dir="rtl">
+جهت نمایش پروژه‌ها از این بخش استفاده کنید. تمام اطلاعات مانند ورژن دوم می‌باشد. 
+
+تنها یک 
+orgchartid
+اضافه شده که با استفاده از آن می‌توانید پروژه مربوط به یک چارت سازمانی خاص را نمایش دهید. این متد برای زمانی که کاربر روی یک چارت کلیک می‌کند که زیرمجموعه ندارد و قرار است پروژه‌های آن چارت نمایش داده‌شود 
+</div>
+
+
+## year (required) {projects-v3}
+
+<div dir="rtl">
+سال جاری که کاربر در بخش تنظیمات مشخص نموده‌است با این درخواست و به عنوان پارامتر اول ارسال شود.
+</div>
+
+
+## orgchartid (required) {projects-v3}
+
+<div dir="rtl">
+چارت سازمانی که کاربر روی آن کلیک کرده را از این طریق ارسال نمایید تا پروژه‌های تعریف‌شده برای آن چارت نمایش داده‌شود.
+</div>
+
+## page (optional) {projects-v3}
+
+<div dir="rtl">
+با توجه به اینکه میزان اطلاعات ممکن است زیاد شود و هم زمان لود طول بکشد و هم UI از زیبایی خارج شود اطلاعات به صورت صفحه به صفحه می‌اید. این پارامتر شماره صفحه را برای دریافت اطلاعات آن صفحه مشخص می‌کند.
+</div>
+
+default:1
+
+## limit (optional) {projects-v3}
+
+<div dir="rtl">
+تعداد رکوردهای مربوط به هر صفحه را نمایش می‌دهد. می‌توانید مشخص کنید که در هربار واکشی اطلاعات چه تعداد رکورد را برای شما بیاورد.
+</div>
+
+default: 10
+
+## alerttype (optional) {projects-v3}
+
+<div dir="rtl">
+وقتی کاربر روی هشدارها کلیک کرده و مقدار EnTitle مربوط به هشدار کلیک شده را گرفتید همان را به عنوان alerttype باید به این متد ارسال کنید.
+
+
+> نکته: دقت کنید که حتماً مقدار CanClick آیتم کلیک شده برابر با true باشد.
+
+
+جهت اطمینان مقادیر مجاز برای alerttype که مقدار null بر نمی‌گرداند به شرح زیر است.
+</div>
+
+- AlertCount
+- ProjectStepIssueCount
+- ProjectWFIssueCount
+- ProjectChallengeIssueCount
+- ProjectGoalIssueCount
+- و مقدار خالی که عملکرد آن مشابه [نسخه اول این متد](#projects) خواهد شد.
+
+default: ""
+
+## search (optional) {projects-v3}
+
+<div dir="rtl">
+برای جستجوی عبارت خاص در رکوردها از این پارامتر استفاده کنید. این پارامتر جهت استفاده در بخش‌های مختلف جستجو در دسترس است و در آدرس‌های مختلف به همین منظور قرار داده‌شده‌است.
+</div>
+
+default: ""
+
+## Sample  {projects-v3}
+
+<div dir="rtl">
+نمونه نحوه ارسال درخواست با OkHttpClient در جاوا
+</div>
+
+```java
+OkHttpClient client = new OkHttpClient();
+
+Request request = new Request.Builder()
+  .url("http://armandar.com/api/v3/projects/1395/44/1/10/AlertCount")
+  .get()
+  .addHeader("authorization", "Bearer gyXOAl0G4lg5LQYDa....")
+  .addHeader("cache-control", "no-cache")
+  .build();
+
+Response response = client.newCall(request).execute();
+```
+
+
+<div dir="rtl">
+این مثال پروژه‌های مربوطه به چارت سازمانی با 
+Id
+شماره ۴۴ را نمایش خواهد داد.
+
+نتیجه دریافتی به صورت زیر خواهد بود.
+</div>
+
+```json
+[
+    {
+        "Id": 9339,
+        "Code": "P96-009339",
+        "Title": "تست",
+        "OrganizationChartId": 440808,
+        "OrganizationChartTitle": "دانشگاه تبریز",
+        "StatusId": 2,
+        "StatusTitle": "در حال انجام",
+        "ScheduleValue": 94.49,
+        "Value": 93,
+        "YearId": 1396,
+        "DeviationFactor": -1.49,
+        "Year": 1396,
+        "ScheduleStartDate": "2017-04-21T00:00:00",
+        "ScheduleStartDateString": "1396/02/01",
+        "ScheduleEndDate": "2018-02-19T00:00:00",
+        "ScheduleEndDateString": "1396/11/30",
+        "ActualStartDate": null,
+        "ActualStartDateString": "",
+        "ActualEndDate": null,
+        "ActualEndDateString": "",
+        "ExecutionTypeId": null,
+        "ExecutionTypeTitle": null,
+        "Budget": null,
+        "BudgetAllocationTypeId": null,
+        "BudgetAllocationTypeTitle": null,
+        "BudgetFundingTypeId": null,
+        "BudgetFundingTypeTitle": null,
+        "AssignedMembers": "دانشگاه تبریز (tabriz)",
+        "Description": null
+    },
+    {
+        "Id": 9342,
+        "Code": "P96-009342",
+        "Title": "تست ",
+        "OrganizationChartId": 440808,
+        "OrganizationChartTitle": "دانشگاه تبریز",
+        "StatusId": 4,
+        "StatusTitle": "پایان یافته",
+        "ScheduleValue": 100,
+        "Value": 100,
+        "YearId": 1396,
+        "DeviationFactor": 0,
+        "Year": 1396,
+        "ScheduleStartDate": "2017-03-21T00:00:00",
+        "ScheduleStartDateString": "1396/01/01",
+        "ScheduleEndDate": "2017-10-22T00:00:00",
+        "ScheduleEndDateString": "1396/07/30",
+        "ActualStartDate": null,
+        "ActualStartDateString": "",
+        "ActualEndDate": null,
+        "ActualEndDateString": "",
+        "ExecutionTypeId": null,
+        "ExecutionTypeTitle": null,
+        "Budget": null,
+        "BudgetAllocationTypeId": null,
+        "BudgetAllocationTypeTitle": null,
+        "BudgetFundingTypeId": null,
+        "BudgetFundingTypeTitle": null,
+        "AssignedMembers": "دانشگاه تبریز (tabriz)",
+        "Description": null
+    },...
+]
+```
+
+Title: عنوان
+
+Code: کد (حتماً کد را هم نمایش دهید)
+
+OrganizationChartTitle: نام دانشگاه یا واحد
+
+Value: پیشرفت واقعی
+
+ScheduleValue: پیشرفت برنامه‌ای
+
+DeviationFactor: میرزان انحراف
+
+StatusTitle: وضعیت
+
+Year: سال کاری
+
+ScheduleStartDate: تاریخ شروع برنامه‌ای
+
+ScheduleStartDateString: تاریخ شمسی شروع برنامه‌ای
+
+ScheduleEndDate: تاریخ پایان برنامه‌ای
+
+ScheduleEndDateString: تاریخ شمسی پایان برنامه‌ای
+
+ActualStartDate: تاریخ شروع واقعی
+
+ActualStartDateString: تاریخ شمسی شروع واقعی
+
+ActualEndDate: تاریخ پایان واقعی
+
+ActualEndDateString: تاریخ شمسی پایان واقعی
+
+ExecutionTypeTitle: نوع اجرا
+
+BudgetAllocationTypeTitle: نحوه تخصیص بودجه
+
+BudgetFundingTypeTitle: محل تامین بودجه
+
+AssignedMembers: واحد مسئول
+
+Description: ضرورت تعریف پروژه
+
+
+<div dir="rtl">
+بقیه اطلاعات نیز در حال حاضر مورد نیاز نیست و جایی نمایش داده نمی‌شود. در صورتی که مقدار alerttype چیزی به جز رشته خالی باشد مقدار پیشرفت‌ها و انحراف‌ها همگی صفر بر‌می‌گردد چون کاربردی ندارند.
+</div>
 
 
 
